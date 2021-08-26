@@ -18,8 +18,13 @@
     {
         $edition = $_SESSION['edition'];
         unset($_SESSION['edition']);
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>Votre GSM a bien été modifié</div>';
+        switch($edition)
+        {
+            case 1: echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>Votre GSM a bien été modifié</div>'; break;
+            case 2: echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>Votre GSM a bien été supprimé</div>';break;
+        }
     }
     ?>
 

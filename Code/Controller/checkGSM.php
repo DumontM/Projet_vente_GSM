@@ -119,3 +119,36 @@
 
         header("location: manageGSM.php");
     }
+
+    /**
+     * Supprimer un GSM
+     */
+    else if(isset($_POST['btnSupp'])
+        && isset($_POST['idGSM'])
+        && isset($_POST['idModele']))
+    {
+        echo 'je suis dans le if de supprimer</br></br>';
+
+        if(isset($_POST['btnPanier1']) || isset($_POST['btnPanier2']))
+        {
+            unset($_POST['btnPanier2']);
+            unset($_POST['btnPanier1']);
+        }
+
+        /**
+         * permet d'envoyer les sessions vers manageGSM
+         */
+        $_SESSION['btnSupp']=$_POST['btnSupp'];
+        $_SESSION['idGSM']=$_POST['idGSM'];
+        $_SESSION['idModele']=$_POST['idModele'];
+
+
+        echo 'btnSupp est : '.$_SESSION['btnSupp'].'</br>';
+        echo 'idGSM est : '.$_SESSION['idGSM'].'</br>';
+        echo 'idModele est : '.$_SESSION['idModele'].'</br>';
+
+
+        header("location: supprimerGSM.php");
+    }
+
+

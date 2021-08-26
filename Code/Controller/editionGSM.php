@@ -6,8 +6,6 @@
     require_once '../Controller/Form.php';
 
     $GSM = Model::load('gsm');
-    //$modeles = Model::load('modeles');
-    //$marques = Model::load('marques');
     $JOIN ='modeles ON gsm.modeles_id=modeles.id JOIN marques ON modeles.marques_id=marques.id_marque';
     $GSM -> read('','',$JOIN,'');
 
@@ -36,7 +34,7 @@
     */
 
 
-/**
+    /**
      * recoit les information de ../View/manageGSM.php
      * ce qui va permet de tester
      * mettre a jour la db
@@ -179,8 +177,6 @@
                 // lecture en db pour verifier que le modeles correspond avec la marque
                 $Where = " nomModele = '$modele' and nomMarque = '$marque' and id_gsm = '$idGSM'";
                 $GSM -> read('',$Where,$JOIN,'');
-                //$modeles -> read ('',"nomModele = '$modele' and id = '$idMod'",'','');
-                //$marques -> read ('',"nomMarque = '$marque'",'','');
 
                 if($GSM -> data == true)
                 {
@@ -227,7 +223,7 @@
                         */
 
                         $GSM -> modficationGSM($idGSM,$idMod,$imei,$modele,$couleur,$ecran,$processeur,$memoire,$taille,$poids,$image,$prix,$actif,$marque,$logo);
-                        //$Where = " imei = '$imei' and nomModele = '$modele' and couleur = '$couleur' and ecran = '$ecran' and processeur = '$processeur' and memoire = '$memoire' and taille = '$taille' and poids = '$poids' and image = '$image' and prix = '$prix' and actif = '$actif' and nomMarque = '$marque' and logo = '$logo'";
+                        $Where = " imei = '$imei' and nomModele = '$modele' and couleur = '$couleur' and ecran = '$ecran' and processeur = '$processeur' and memoire = '$memoire' and taille = '$taille' and poids = '$poids' and image = '$image' and prix = '$prix' and actif = '$actif' and nomMarque = '$marque' and logo = '$logo'";
                         //$modeles -> read ('',"id = '$idMod' and nomModele = '$modele' and couleur = '$couleur' and ecran = '$ecran' and processeur = '$processeur' and memoire = '$memoire' and taille = '$taille' and poids = '$poids' and image = '$image' and prix = '$prix'");
                         //$marques -> read ('',"id = '$idMarq' and nomMarque = '$marque' and logo = '$logo'");
                         $GSM -> read('',$Where,$JOIN,'');

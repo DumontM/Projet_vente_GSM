@@ -127,6 +127,14 @@
                                     $formModif->setSubmit("btnModif","btnModif","","Modifier le GSM","btn-block");
                                     echo $formModif->getMyFrom();
                                     echo '</div></th>';
+
+                                    echo '<th colspan="2"><div class="text-center">';
+                                    $formSup=new Form('FormSupp','FormSupp','POST','checkGSM.php','');
+                                    $formSup->hidden("","idGSM","idGSM","$values->id_gsm");
+                                    $formSup->hidden("","idModele","idModole","$values->modeles_id");
+                                    $formSup->setSubmit("btnSupp","btnSupp","","Supprimer le GSM","btn-block");
+                                    echo $formSup->getMyFrom();
+                                    echo '</div></th>';
                                 }
 
                                 //icone ajout panier

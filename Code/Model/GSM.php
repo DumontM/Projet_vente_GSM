@@ -61,4 +61,22 @@ class GSM extends Model
             echo 'erreur procedure'.$e;
         }
     }
+
+    public function supprimerGSM($pIdGSM, $pIdMod)
+    {
+        $this->bdd->beginTransaction();
+        try
+        {
+            $stmt = $this->bdd->prepare("CALL SP_Supprimer_GSM(:idGSM, :idMod)");
+            $stmt->bindParam(":idGSM", $pIdGSM, PDO::PARAM_INT,11);
+            $stmt->bindParam(":idMod", $pIdMod, PDO::PARAM_INT,11);
+            $stmt->execute();
+            $this->bdd->commit();
+        }
+        catch (Exception $e)
+        {
+            $this->bdd->rollBack();
+            echo 'erreur procedure'.$e;
+        }
+    }
 }
