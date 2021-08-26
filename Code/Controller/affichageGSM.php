@@ -1,6 +1,15 @@
 <?php
+    /**
+     * vérifie que la session n'est déja pas ouverte
+     *
+    if(session_status() == PHP_SESSION_NONE)
+    {
+    session_start();
+    }*/
+
     //controle la page afficher gsm
     session_start();
+
     require '../Model/Model.php';
     require '../Controller/Form.php';
 

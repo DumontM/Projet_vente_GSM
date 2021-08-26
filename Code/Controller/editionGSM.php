@@ -1,4 +1,11 @@
 <?php
+    /**
+     * vérifie que la session n'est déja pas ouverte
+     *
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }*/
 
     $Titre =' Modifier le GSM';
     require_once '../View/Header.php';
@@ -256,28 +263,18 @@
                     $_SESSION['erreur'] = 4;
                     header('Location: ../Controller/manageGSM.php');
                 }
-                /*elseif ($modeles -> data == false && $marques -> data == false)
-                {
-                    $_SESSION['erreur'] = 5;
-                    header('Location: ../Controller/manageGSM.php');
-                }
-                elseif ($modeles -> data == true && $marques -> data == false)
-                {
-                    $_SESSION['erreur'] = 6;
-                    header('Location: ../Controller/manageGSM.php');
-                }*/
             }
         }
         else
         {
             //une variable vide
-            $_SESSION['erreur'] = 7;
+            $_SESSION['erreur'] = 5;
             header('Location: ../Controller/manageGSM.php');
         }
     }
     else
     {
         //erreur de reception
-        $_SESSION['erreur'] = 8;
+        $_SESSION['erreur'] = 6;
         header('Location: ../Controller/manageGSM.php');
     }

@@ -12,7 +12,7 @@
 
     <?php
     /**
-     * message de confirmation de la modification
+     * message de confirmation de la modification ou suppression
      */
     if (isset($_SESSION['edition']))
     {

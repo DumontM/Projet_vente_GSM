@@ -1,8 +1,12 @@
 <?php
-
-    if (session_status() == PHP_SESSION_NONE) {                 // Verifier si la session n'est pas déjà ouverte
-        session_start();
+    /**
+     * vérifie que la session n'est déja pas ouverte
+     */
+    if(session_status() == PHP_SESSION_NONE)
+    {
+    session_start();
     }
+
     require_once '../Model/Model.php';
 
     $GSM= Model::load('gsm');
@@ -16,12 +20,13 @@
     /**
      * verificaton des variables
      * mise des variables en session dans l'attente de la validation du panier
-     * envoie sur manageGSM en cas de modif
+     * ajout du GSM au panier
      */
     if(isset($_POST['btnPanier1']) || isset($_POST['btnPanier2']))
     {
         if(isset($_POST['idGSM']))
         {
+            // tableau pour conserver les données avant l'envois vers le panier
             if($_POST['btnPanier1'])
             {
                 $_SESSION['btnPanier'] = $_POST['btnPanier1'];
@@ -35,13 +40,14 @@
         {
             unset($_POST['btnPanier2']);
             unset($_POST['btnPanier1']);
-            $_SESSION['erreur'] = 1;
+            $_SESSION['erreur'] = 8;
             header('Location: GSM.php');
         }
     }
 
     /**
      * Modification livre
+     * envoie sur manageGSM en cas de modif
      */
     else if(isset($_POST['btnModif'])
             && isset($_POST['idGSM'])
@@ -62,10 +68,9 @@
     {
         //echo 'je suis dans le if de modification</br></br>';
 
-        if(isset($_POST['btnPanier1']) || isset($_POST['btnPanier2']))
+        if(isset($_SESSION['btnPanier']))
         {
-            unset($_POST['btnPanier2']);
-            unset($_POST['btnPanier1']);
+            unset($_POST['btnPanier']);
         }
 
         /**
@@ -129,10 +134,9 @@
     {
         echo 'je suis dans le if de supprimer</br></br>';
 
-        if(isset($_POST['btnPanier1']) || isset($_POST['btnPanier2']))
+        if(isset($_POST['btnPanier']))
         {
-            unset($_POST['btnPanier2']);
-            unset($_POST['btnPanier1']);
+            unset($_POST['btnPanier']);
         }
 
         /**
@@ -150,5 +154,3 @@
 
         header("location: supprimerGSM.php");
     }
-
-

@@ -13,14 +13,18 @@
     //affiche message d'erreur suit au numéro récuperé
     switch ($erreur)
     {
-        case 1: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Votre prix doit être supérieur à 1.</div>'; break;
+        // modification
+        case 1: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>Votre prix doit être supérieur à 0.</div>'; break;
         case 2: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>La modification du gsm a échoué.</div>'; break;
         case 3: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Il y a eu aucune modification.</div>'; break;
         case 4: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Le GSM n\'est pas modifiable.</div>'; break;
-        case 5: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>La suppression du GSM a échouée.</div>'; break;
-        case 6: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>La marque est introuvable! Ne pas modifier.</div>'; break;
-        case 7: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Vos informations doivent être complètées.</div>'; break;
-        case 8: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Il a eu un problème lors de la reception des données.</div>'; break;
+        case 5: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Vos informations doivent être complètées.</div>'; break;
+        case 6: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Il a eu un problème lors de la reception des données.</div>'; break;
+        // suppression
+        case 7: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>La suppression du GSM a échouée.</div>'; break;
+        //Panier
+        case 8: echo'<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>Panier</div>'; break;
     }
 ?>
 
