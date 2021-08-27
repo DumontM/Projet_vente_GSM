@@ -1,11 +1,11 @@
 <?php
     /**
      * vérifie que la session n'est déja pas ouverte
-     *
+     */
     if(session_status() == PHP_SESSION_NONE)
     {
     session_start();
-    }*/
+    }
 
     require_once '../View/Header.php';
     require_once '../Model/Model.php';

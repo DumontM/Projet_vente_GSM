@@ -1,5 +1,13 @@
 <?php
+    /**
+     * vérifie que la session n'est déja pas ouverte
+     */
+    if(session_status() == PHP_SESSION_NONE)
+    {
     session_start();
+    }
+
+    //session_start();
     // Permet de donner le role de l'utilisateur ( 1=client, 2=employé, 3=admin)
     $idRole = 3;
 ?>
@@ -27,16 +35,18 @@
                     <li class="nav-item active"><a class="nav-link" href="../Controller/accueil.php"><i class="bi bi-house"></i> Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Controller/Client.php"><i class="bi bi-person"></i> Client</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Controller/GSM.php"><i class="bi bi-phone"></i> GSM</a></li>
-                    <li class="nav-item"><a class="nav-link" href="panier.php"><i class="bi bi-cart"></i> Panier</div></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Controller/ajoutPanier.php"><i class="bi bi-cart"></i> Panier</div></a></li>
+                        <div id="resultatPanier"></div>
                 </ul>
             </div>
         </div>
 
         <div class="session">
             <?php
-            if (isset($_SESSION['UTILISATEUR_OK']) && isset($_SESSION['UTILISATEUR_NOM']) && $_SESSION['UTILISATEUR_OK'] = 1)
+            if (isset($_SESSION['UTILISATEUR_OK']) && $_SESSION['UTILISATEUR_OK'] == 1)
             {
-                echo '<p class="bienvenu">Bienvenu à '.$_SESSION['UTILISATEUR_NOM'].'</p>';
+                //echo '<p class="bienvenu">Bienvenu à '.$_SESSION['UTILISATEUR_NOM'].'</p>';
+                $_SESSION['connecte'] = true;
                 echo '<form method="post" action="../Controller/Deconnexion.php">
                         <input type="submit" name="deconnexion" value="Déconnexion">
                       </form>';

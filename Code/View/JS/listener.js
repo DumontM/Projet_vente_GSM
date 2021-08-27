@@ -125,7 +125,7 @@ function actifInactif(id)
                 alert(data.message);
             }else{
                 if(confirm(data.message + '. Voulez vous consulter votre panier ?')){
-                    location.href = 'panier.php';
+                    location.href = 'Panier.php';
                 }else{
                     $('#total').empty().append(data.total);
                     $('#count').empty().append(data.count);
@@ -140,7 +140,7 @@ function actifInactif(id)
 {
     $('.btnpanier').click(function())
     {
-        $.post(('../Controller/panier.php',id,function(data)
+        $.post(('../Controller/Panier.php',id,function(data)
         {
             if(data.error)
             {
@@ -150,7 +150,7 @@ function actifInactif(id)
             {
                 if(confirm(data.message + 'Voulez vous consulter votre panier ?'))
                 {
-                    location.href = '../Controller/panier.php';
+                    location.href = '../Controller/Panier.php';
                 }
                 else
                 {

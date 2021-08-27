@@ -34,6 +34,12 @@ class Form
             '<input type="text" name="'.$name.'" id="'.$id.'" value="'.$value.'" '.$this ->getRequired($required).' placeholder="'.$placeholder.'"/></br>';
     }
 
+    public function setPassword($label, $name, $id, $value, $required=false, $placeholder)
+    {
+        $this->myForm .= '<label for="'.$name.'">'.$label.'</label>'.
+        '<input type="text" name="'.$name.'" id="'.$id.'" value="'.$value.'" '.$this ->getRequired($required).' placeholder="'.$placeholder.'"/></br>';
+    }
+
     /**
      * on crée une méthode setEmail
      * @param $label

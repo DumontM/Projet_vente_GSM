@@ -3,7 +3,7 @@
 ?>
 
 <?php
-if($gsm->data)
+if($GSM->data)
 {
     //affiche le tableau
     echo'
@@ -20,7 +20,7 @@ if($gsm->data)
                                         <tbody class="table table-bordered">';
 
 
-    foreach ($gsm -> data as $key => $values)
+    foreach ($GSM -> data as $key => $values)
     {
         echo "<tr class='TrGSM'>";
         // affiche le nom du modéle du GSM
@@ -58,14 +58,14 @@ if($gsm->data)
         echo '<td>'.number_format($values->prix, 2,',','').' euros</td>';
 
         //icone ajout panier
-        //echo '<td><a class="add addpanier" href="../Controller/Panier.php?id='.$values->id_gsm.'"><i class="bi bi-cart-plus"></i></a>';
-
+        echo '<td><button><a class="add addpanier" href="../Controller/ajoutPanier.php?idGSM='.$values->id_gsm.'"><i class="bi bi-cart-plus"></i></a></button>';
+        /*
         echo '<td>';
         $formModeles= new Form("formModeles","formModeles","POST","","");
         $formModeles->hidden("","idGSM","$values->id_gsm","$values->id_gsm");
         $formModeles -> button("btnpanier","btnPanier1","btnPanier1","","","",'<i class="bi bi-cart-plus"></i>');
         echo $formModeles->getMyFrom();
-
+        */
         echo '</td></tr>';
 
     }

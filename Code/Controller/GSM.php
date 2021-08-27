@@ -1,11 +1,11 @@
 <?php
     /**
      * vérifie que la session n'est déja pas ouverte
-     *
+     */
     if(session_status() == PHP_SESSION_NONE)
     {
         session_start();
-    }*/
+    }
 
     $Titre ='GSM';
     require '../View/Header.php';
